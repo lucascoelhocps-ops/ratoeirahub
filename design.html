@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlowDesk - A plataforma de atendimento mais completa do mercado</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    :root {
+      --primary: #8B5CF6;
+      --primary-dark: #7C3AED;
+      --text-primary: #18181B;
+      --text-secondary: #71717A;
+      --bg-white: #FFFFFF;
+      --bg-light: #F4F4F5;
+      --bg-yellow-light: #FEF9E7;
+      --accent-green: #10B981;
+      --border-light: #E4E4E7;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-white);
+      color: var(--text-primary);
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    /* Navbar */
+    .navbar {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      background: var(--bg-white);
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--primary);
+      border-radius: 50%;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+    
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    
+    .nav-links a:hover {
+      color: var(--text-primary);
+    }
+    
+    .nav-cta {
+      background: var(--primary);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 22px;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+    }
+    
+    /* Hero */
+    .hero {
+      background: var(--bg-yellow-light);
+      padding: 80px;
+      min-height: 700px;
+    }
+    
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      justify-content: center;
+    }
+    
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: #EDE9FE;
+      border: 1px solid #DDD6FE;
+      border-radius: 18px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #7C3AED;
+      width: fit-content;
+    }
+    
+    .hero-title {
+      font-size: 56px;
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--text-primary);
+    }
+    
+    .hero-subtitle {
+      font-size: 18px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    
+    .hero-social {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    .hero-avatars {
+      display: flex;
+    }
+    
+    .avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      margin-left: -8px;
+      border: 2px solid white;
+    }
+    
+    .avatar:first-child {
+      margin-left: 0;
+    }
+    
+    .hero-rating {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    
+    .stars {
+      color: #F59E0B;
+      font-size: 12px;
+    }
+    
+    .rating-text {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+    
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+    }
+    
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      padding: 16px 32px;
+      border-radius: 16px;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .btn-secondary {
+      background: var(--bg-white);
+      color: var(--text-primary);
+      padding: 16px 32px;
+      border-radius: 16px;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      border: 1px solid var(--border-light);
+    }
+    
+    .hero-trust {
+      display: flex;
+      gap: 16px;
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+    
+    .hero-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .hero-card {
+      background: var(--bg-white);
+      border-radius: 24px;
+      border: 1px solid var(--border-light);
+      width: 450px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(139, 92, 246, 0.1);
+    }
+    
+    .hero-card-header {
+      background: var(--primary);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    .hero-card-avatar {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+    }
+    
+    .hero-card-info {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .hero-card-title {
+      width: 80px;
+      height: 16px;
+      background: white;
+      border-radius: 4px;
+    }
+    
+    .hero-card-sub {
+      width: 100px;
+      height: 10px;
+      background: rgba(255,255,255,0.4);
+      border-radius: 4px;
+    }
+    
+    .hero-card-stats {
+      background: var(--primary);
+      padding: 16px 24px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    
+    .stat {
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .stat-val {
+      width: 40px;
+      height: 24px;
+      background: white;
+      border-radius: 4px;
+    }
+    
+    .stat-label {
+      width: 50px;
+      height: 10px;
+      background: rgba(255,255,255,0.4);
+      border-radius: 4px;
+    }
+    
+    .msg-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 20px;
+    }
+    
+    .msg-item:nth-child(odd) {
+      background: var(--bg-white);
+    }
+    
+    .msg-item:nth-child(even) {
+      background: #F9FAFB;
+    }
+    
+    .msg-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+    }
+    
+    .msg-content {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    
+    .msg-name {
+      width: 80px;
+      height: 12px;
+      background: var(--text-primary);
+      border-radius: 4px;
+    }
+    
+    .msg-text {
+      width: 150px;
+      height: 10px;
+      background: var(--text-secondary);
+      border-radius: 4px;
+    }
+    
+    /* Benefits */
+    .benefits {
+      padding: 80px;
+      background: var(--bg-white);
+    }
+    
+    .section-header {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    
+    .section-title {
+      font-size: 48px;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+    
+    .section-subtitle {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+    
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    
+    .tab {
+      padding: 12px 20px;
+      border-radius: 24px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      background: var(--bg-white);
+      border: 1px solid var(--border-light);
+      color: var(--text-secondary);
+    }
+    
+    .tab.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    
+    .benefits-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+    
+    .feature-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    
+    .feature-desc {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    
+    .badges {
+      display: flex;
+      gap: 16px;
+    }
+    
+    .badge {
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    
+    .badge-1 {
+      background: var(--bg-yellow-light);
+      color: var(--primary);
+    }
+    
+    .badge-2 {
+      background: #DCFCE7;
+      color: var(--accent-green);
+    }
+    
+    .benefits-right {
+      background: var(--bg-light);
+      border-radius: 24px;
+      min-height: 350px;
+    }
+    
+    /* Metrics */
+    .metrics {
+      padding: 80px;
+      background: #6D28D9;
+    }
+    
+    .metrics .section-title {
+      color: white;
+    }
+    
+    .metrics-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 18px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #C4B5FD;
+    }
+    
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    
+    .metric-card {
+      background: rgba(255,255,255,0.1);
+      border-radius: 24px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    
+    .metric-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+    }
+    
+    .metric-value {
+      font-size: 48px;
+      font-weight: 800;
+      color: white;
+    }
+    
+    .metric-label {
+      font-size: 16px;
+      font-weight: 700;
+      color: white;
+    }
+    
+    /* Integrations */
+    .integrations {
+      padding: 80px;
+      background: #F9FAFB;
+    }
+    
+    .int-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    
+    .int-card {
+      width: 150px;
+      height: 150px;
+      background: var(--bg-white);
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    
+    .int-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+    }
+    
+    .int-text {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-primary);
+      text-align: center;
+    }
+    
+    .int-card.highlight {
+      background: var(--bg-yellow-light);
+      border-color: #DDD6FE;
+    }
+    
+    /* Testimonials */
+    .testimonials {
+      padding: 80px;
+      background: var(--bg-white);
+    }
+    
+    .test-featured {
+      max-width: 700px;
+      margin: 0 auto 32px;
+      background: var(--bg-yellow-light);
+      border: 1px solid #DDD6FE;
+      border-radius: 24px;
+      padding: 40px;
+    }
+    
+    .test-rating {
+      color: #F59E0B;
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+    
+    .test-quote {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.6;
+      color: var(--text-primary);
+      margin-bottom: 24px;
+    }
+    
+    .test-author {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .test-author-info {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    .test-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+    }
+    
+    .test-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    
+    .test-role {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+    
+    .test-metric {
+      background: var(--bg-white);
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      padding: 12px 16px;
+      text-align: center;
+    }
+    
+    .test-metric-value {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+    
+    .test-metric-label {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+    
+    .test-nav {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+    
+    .test-nav-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+    
+    .test-nav-dot.active {
+      background: var(--primary);
+    }
+    
+    .test-nav-dot:not(.active) {
+      background: var(--border-light);
+    }
+    
+    .test-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    
+    .t-card {
+      background: #F9FAFB;
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      padding: 24px;
+    }
+    
+    .t-card-stars {
+      color: #F59E0B;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+    
+    .t-card-quote {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+    
+    .t-card-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .t-card-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+    }
+    
+    .t-card-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    
+    /* CTA */
+    .cta {
+      padding: 80px;
+      background: #6D28D9;
+      text-align: center;
+    }
+    
+    .cta-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 18px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #C4B5FD;
+      margin-bottom: 16px;
+    }
+    
+    .cta-title {
+      font-size: 56px;
+      font-weight: 800;
+      color: white;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    
+    .cta-subtitle {
+      font-size: 20px;
+      color: #C4B5FD;
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto 32px;
+    }
+    
+    .cta-btns {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    
+    .cta-trust {
+      font-size: 14px;
+      color: #A78BFA;
+    }
+    
+    /* Contact */
+    .contact {
+      padding: 80px;
+      background: var(--bg-white);
+    }
+    
+    .contact-title {
+      font-size: 40px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    
+    .form-input {
+      height: 56px;
+      padding: 12px 16px;
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      font-size: 14px;
+      color: #9CA3AF;
+      background: var(--bg-white);
+    }
+    
+    .form-submit {
+      height: 56px;
+      padding: 16px 32px;
+      background: var(--accent-green);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    
+    /* Footer */
+    .footer {
+      height: 80px;
+      background: #1F2937;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+    }
+    
+    .footer-logo {
+      font-weight: 700;
+      font-size: 16px;
+      color: white;
+    }
+    
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+    
+    .footer-links a {
+      font-size: 12px;
+      color: #9CA3AF;
+      text-decoration: none;
+    }
+    
+    .footer-copy {
+      font-size: 12px;
+      color: #6B7280;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <div class="logo-icon"></div>
+      <span>FlowDesk</span>
+    </div>
+    <div class="nav-links">
+      <a href="#">Plataforma</a>
+      <a href="#">Preços</a>
+      <a href="#">Integrações</a>
+      <a href="#">Clientes</a>
+    </div>
+    <a href="#" class="nav-cta">Começar</a>
+  </nav>
+  
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-left">
+        <div class="hero-badge">
+          <span>✨</span>
+          <span>IA integrada ao seu atendimento</span>
+        </div>
+        <h1 class="hero-title">Não deixe seus clientes esperando.</h1>
+        <p class="hero-subtitle">Centralize WhatsApp, Instagram, e-mail e mais em uma única plataforma. Atenda mais rápido, converta mais e encante seus clientes com IA.</p>
+        <div class="hero-social">
+          <div class="hero-avatars">
+            <div class="avatar" style="background: #7C3AED;"></div>
+            <div class="avatar" style="background: #059669;"></div>
+            <div class="avatar" style="background: #E11D48;"></div>
+            <div class="avatar" style="background: #D97706;"></div>
+          </div>
+          <div class="hero-rating">
+            <span class="stars">★★★★★</span>
+            <span class="rating-text">+1.500 empresas</span>
+          </div>
+        </div>
+        <div class="hero-btns">
+          <a href="#" class="btn-primary">Começar gratuitamente →</a>
+          <a href="#" class="btn-secondary">Ver demonstração</a>
+        </div>
+        <div class="hero-trust">
+          <span>✓ Sem cartão</span>
+          <span>✓ 14 dias grátis</span>
+          <span>✓ Cancele quando quiser</span>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-card">
+          <div class="hero-card-header">
+            <div class="hero-card-avatar"></div>
+            <div class="hero-card-info">
+              <div class="hero-card-title"></div>
+              <div class="hero-card-sub"></div>
+            </div>
+          </div>
+          <div class="hero-card-stats">
+            <div class="stat">
+              <div class="stat-val"></div>
+              <div class="stat-label"></div>
+            </div>
+            <div class="stat">
+              <div class="stat-val"></div>
+              <div class="stat-label"></div>
+            </div>
+            <div class="stat">
+              <div class="stat-val"></div>
+              <div class="stat-label"></div>
+            </div>
+          </div>
+          <div class="msg-item">
+            <div class="msg-icon" style="background: #10B981;"></div>
+            <div class="msg-content">
+              <div class="msg-name"></div>
+              <div class="msg-text"></div>
+            </div>
+          </div>
+          <div class="msg-item">
+            <div class="msg-icon" style="background: #8B5CF6;"></div>
+            <div class="msg-content">
+              <div class="msg-name"></div>
+              <div class="msg-text"></div>
+            </div>
+          </div>
+          <div class="msg-item">
+            <div class="msg-icon" style="background: #EC4899;"></div>
+            <div class="msg-content">
+              <div class="msg-name"></div>
+              <div class="msg-text"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Benefits -->
+  <section class="benefits">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">A plataforma de atendimento e integração mais completa do mercado, fácil de usar e que utiliza IA.</h2>
+        <p class="section-subtitle">Conheça as principais funcionalidades da Ratoeira</p>
+      </div>
+      <div class="tabs">
+        <button class="tab active">Atendimentos</button>
+        <button class="tab">Campanhas</button>
+        <button class="tab">Dashboard</button>
+        <button class="tab">Automação</button>
+        <button class="tab">Chamadas</button>
+      </div>
+      <div class="benefits-content">
+        <div class="benefits-left">
+          <h3 class="feature-title">Atendimentos</h3>
+          <p class="feature-desc">Todos os contatos dos seus clientes — WhatsApp, redes sociais, campanhas ou telefone — chegam em um só painel, organizado por agente e por fila.</p>
+          <div class="badges">
+            <div class="badge badge-1">✓ Pronto para usar</div>
+            <div class="badge badge-2">⚡ Rápido & Eficiente</div>
+          </div>
+        </div>
+        <div class="benefits-right"></div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Metrics -->
+  <section class="metrics">
+    <div class="container">
+      <div class="section-header">
+        <div class="metrics-badge">📊 Resultados comprovados</div>
+        <h2 class="section-title">Números que falam por si mesmos</h2>
+      </div>
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-icon"></div>
+          <div class="metric-value">1.500+</div>
+          <div class="metric-label">Empresas Ativas</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon"></div>
+          <div class="metric-value">25.000+</div>
+          <div class="metric-label">Usuários</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon"></div>
+          <div class="metric-value">30.000+</div>
+          <div class="metric-label">Atendimentos/dia</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon"></div>
+          <div class="metric-value">1B+</div>
+          <div class="metric-label">Mensagens</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Integrations -->
+  <section class="integrations">
+    <div class="container">
+      <div class="section-header">
+        <div class="hero-badge" style="background: #EDE9FE; border-color: #DDD6FE; color: #7C3AED;">
+          <span>🔗</span>
+          <span>Integrações</span>
+        </div>
+        <h2 class="section-title">Se conecta com tudo que você usa</h2>
+      </div>
+      <div class="int-grid">
+        <div class="int-card">
+          <div class="int-icon" style="background: rgba(37, 211, 102, 0.2);"></div>
+          <span class="int-text">WhatsApp</span>
+        </div>
+        <div class="int-card">
+          <div class="int-icon" style="background: rgba(225, 48, 108, 0.2);"></div>
+          <span class="int-text">Instagram</span>
+        </div>
+        <div class="int-card">
+          <div class="int-icon" style="background: rgba(44, 165, 224, 0.2);"></div>
+          <span class="int-text">Telegram</span>
+        </div>
+        <div class="int-card">
+          <div class="int-icon" style="background: rgba(212, 70, 56, 0.2);"></div>
+          <span class="int-text">Gmail</span>
+        </div>
+        <div class="int-card">
+          <div class="int-icon" style="background: rgba(74, 21, 75, 0.2);"></div>
+          <span class="int-text">Slack</span>
+        </div>
+        <div class="int-card highlight">
+          <div class="int-icon" style="background: #8B5CF6;"></div>
+          <span class="int-text" style="color: var(--primary); font-weight: 700;">+38 mais</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <div class="hero-badge">
+          <span>💬</span>
+          <span>Depoimentos</span>
+        </div>
+        <h2 class="section-title">Quem usa, recomenda</h2>
+      </div>
+      <div class="test-featured">
+        <div class="test-rating">★★★★★</div>
+        <p class="test-quote">"Depois do FlowDesk, nossa equipe resolve 3x mais atendimentos por dia. A IA é impressionante — os clientes nem percebem que estão falando com automação."</p>
+        <div class="test-author">
+          <div class="test-author-info">
+            <div class="test-avatar" style="background: #7C3AED;"></div>
+            <div>
+              <div class="test-name">Fernanda Oliveira</div>
+              <div class="test-role">CEO · VitalMed</div>
+            </div>
+          </div>
+          <div class="test-metric">
+            <div class="test-metric-value">+280%</div>
+            <div class="test-metric-label">produtividade</div>
+          </div>
+        </div>
+      </div>
+      <div class="test-nav">
+        <div class="test-nav-dot"></div>
+        <div class="test-nav-dot active"></div>
+        <div class="test-nav-dot"></div>
+      </div>
+      <div class="test-cards">
+        <div class="t-card">
+          <div class="t-card-stars">★★★★★</div>
+          <p class="t-card-quote">"Integração perfeita. Respondemos pedidos automaticamente."</p>
+          <div class="t-card-author">
+            <div class="t-card-avatar" style="background: #059669;"></div>
+            <span class="t-card-name">Rodrigo Santos</span>
+          </div>
+        </div>
+        <div class="t-card">
+          <div class="t-card-stars">★★★★★</div>
+          <p class="t-card-quote">"NPS subiu de 72% para 91% em dois meses."</p>
+          <div class="t-card-author">
+            <div class="t-card-avatar" style="background: #E11D48;"></div>
+            <span class="t-card-name">Camila Pereira</span>
+          </div>
+        </div>
+        <div class="t-card">
+          <div class="t-card-stars">★★★★★</div>
+          <p class="t-card-quote">"Setup em 1 dia, sem programação. Recomendo!"</p>
+          <div class="t-card-author">
+            <div class="t-card-avatar" style="background: #D97706;"></div>
+            <span class="t-card-name">Bruno Almeida</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA -->
+  <section class="cta">
+    <div class="cta-badge">🚀 Pronto para transformar?</div>
+    <h2 class="cta-title">Comece hoje.<br>É grátis por 14 dias.</h2>
+    <p class="cta-subtitle">Sem cartão de crédito, sem complicação. Configure em minutos e veja a diferença que uma plataforma de verdade faz no seu negócio.</p>
+    <div class="cta-btns">
+      <a href="#" class="btn-primary" style="background: white; color: #7C3AED;">Começar de graça →</a>
+      <a href="#" class="btn-secondary" style="background: rgba(255,255,255,0.1); color: white; border-color: rgba(255,255,255,0.2);">💬 Falar com especialista</a>
+    </div>
+    <p class="cta-trust">+1.500 empresas já transformaram seu atendimento</p>
+  </section>
+  
+  <!-- Contact -->
+  <section class="contact">
+    <div class="container">
+      <h2 class="contact-title">Fale com um especialista</h2>
+      <form class="contact-form">
+        <input type="text" class="form-input" placeholder="Nome" value="Nome">
+        <input type="email" class="form-input" placeholder="Email" value="Email">
+        <input type="tel" class="form-input" placeholder="Telefone" value="Telefone">
+        <input type="text" class="form-input" placeholder="Empresa" value="Empresa">
+        <button type="submit" class="form-submit">SOLICITAR CONTATO</button>
+      </form>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <span class="footer-logo">FlowDesk</span>
+    <div class="footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Contact</a>
+    </div>
+    <span class="footer-copy">© 2024 FlowDesk. All rights reserved.</span>
+  </footer>
+</body>
+</html>
