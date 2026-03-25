@@ -239,14 +239,14 @@ export default function Navbar() {
             {/* Desktop CTAs */}
             <div className="hidden lg:flex items-center gap-3">
               <Link
-                href="#"
+                href="/design-system"
                 className={`text-sm font-semibold px-4 py-2 rounded-xl transition-all ${
                   scrolled
                     ? "text-gray-600 hover:text-orange-600"
                     : "text-white/80 hover:text-white"
                 }`}
               >
-                Entrar
+                DS
               </Link>
               <Link
                 href="#"
@@ -299,10 +299,10 @@ export default function Navbar() {
               ))}
               <div className="pt-3 flex flex-col gap-2">
                 <Link
-                  href="#"
+                  href="/design-system"
                   className="px-4 py-3 text-center text-sm font-semibold text-gray-600 hover:text-orange-600 hover:bg-orange-50 rounded-xl transition-all"
                 >
-                  Entrar
+                  DS
                 </Link>
                 <Link
                   href="#"
