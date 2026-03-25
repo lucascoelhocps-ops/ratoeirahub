@@ -48,17 +48,17 @@ const floatingMessages = [
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-20" style={{ background: "linear-gradient(135deg, #B88600 0%, #CC6438 50%, #B88600 100%)" }}>
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-20" style={{ background: "linear-gradient(135deg, #FFB800 0%, #FF7E4A 50%, #FFB800 100%)" }}>
       {/* Background decorative circles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-amber-400/10 blur-3xl" />
-        <div className="absolute top-1/2 -left-40 w-80 h-80 rounded-full bg-amber-300/10 blur-3xl" />
-        <div className="absolute -bottom-20 right-1/4 w-64 h-64 rounded-full bg-amber-400/5 blur-3xl" />
+      <div className="absolute inset-0 overflow-hidden pointer-events-none bg-black/10">
+        <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-black/20 blur-3xl" />
+        <div className="absolute top-1/2 -left-40 w-80 h-80 rounded-full bg-black/10 blur-3xl" />
+        <div className="absolute -bottom-20 right-1/4 w-64 h-64 rounded-full bg-black/5 blur-3xl" />
         {/* Grid pattern */}
         <div
-          className="absolute inset-0 opacity-20"
+          className="absolute inset-0 opacity-10"
           style={{
-            backgroundImage: `radial-gradient(circle, #ffb80022 1px, transparent 1px)`,
+            backgroundImage: `radial-gradient(circle, #000000 1px, transparent 1px)`,
             backgroundSize: "40px 40px",
           }}
         />

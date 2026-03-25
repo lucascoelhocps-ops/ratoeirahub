@@ -96,7 +96,7 @@ export default function Navbar() {
                                 <p className="text-gray-500 text-sm leading-relaxed font-medium">
                                   Conheça um pouco mais sobre a nossa jornada na Ratoeira Hub e como estamos revolucionando o tráfego pago.
                                 </p>
-                                <Link href="#sobre" className="inline-flex items-center gap-3 text-gray-900 font-black text-sm group-hover/item:text-orange-600 transition-colors pt-4">
+                                <Link href="/quem-somos" className="inline-flex items-center gap-3 text-gray-900 font-black text-sm group-hover/item:text-orange-600 transition-colors pt-4">
                                   Ir até Quem Somos
                                   <ArrowRight className="w-5 h-5 group-hover/item:translate-x-1 transition-transform" />
                                 </Link>
