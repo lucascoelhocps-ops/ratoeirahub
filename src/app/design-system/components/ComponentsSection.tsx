@@ -55,63 +55,127 @@ function ComponentDemo({ title, description, code, children }: ComponentDemoProp
 
 export default function ComponentsSection() {
   return (
-    <section id="componentes" className="space-y-12">
+    <section id="componentes" className="space-y-16">
       <div>
         <h2 className="text-heading-section text-text-primary mb-4">
-          Componentes
+          Componentes & Anatomia
         </h2>
         <p className="text-body-base text-text-secondary max-w-2xl">
-          Componentes base do sistema, prontos para uso. Cada componente possui estados de hover, focus e active implementados.
+          Especificações técnicas e comportamentais dos elementos base do Ratoeira Hub.
         </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        {/* Botão Primário com Red Lines */}
         <ComponentDemo
           title="Botão Primário"
-          description="Usado para chamadas de ação principais em landing pages e formulários."
-          code={`<button className="bg-brand-primary hover:bg-brand-primary-hover text-text-primary shadow-btn-primary hover:shadow-btn-primary-hover hover:-translate-y-0.5 rounded-button px-8 py-4 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-primary/50 font-bold">
+          description="Anatomia do botão principal com foco em paddings e altura fixa."
+          code={`<button className="bg-brand-primary h-[56px] px-8 rounded-button font-bold text-text-primary shadow-btn-primary">
   Botão Principal
 </button>`}
         >
-          <button className="bg-brand-primary hover:bg-brand-primary-hover text-text-primary shadow-btn-primary hover:shadow-btn-primary-hover hover:-translate-y-0.5 rounded-button px-8 py-4 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-primary/50 font-bold">
-            Botão Principal
-          </button>
+          <div className="relative inline-block">
+            {/* Padding Left Indicator */}
+            <div className="absolute top-0 bottom-0 left-0 w-[32px] bg-red-500/10 border-r border-dashed border-red-500 pointer-events-none z-10 flex items-center justify-center">
+              <span className="text-[9px] text-red-500 font-mono bg-white px-0.5 rounded border border-red-200">px: 32</span>
+            </div>
+            
+            {/* Padding Right Indicator */}
+            <div className="absolute top-0 bottom-0 right-0 w-[32px] bg-red-500/10 border-l border-dashed border-red-500 pointer-events-none z-10" />
+            
+            {/* Height Indicator */}
+            <div className="absolute -right-8 top-0 bottom-0 border-r border-dashed border-red-500 flex items-center pointer-events-none">
+              <div className="absolute top-0 right-0 w-1 border-t border-red-500" />
+              <div className="absolute bottom-0 right-0 w-1 border-t border-red-500" />
+              <span className="text-[9px] text-red-500 font-mono bg-red-50 px-1 translate-x-full whitespace-nowrap border border-red-100 rounded ml-1">
+                H: 56px
+              </span>
+            </div>
+
+            <button className="bg-brand-primary h-[56px] px-8 rounded-button font-bold text-text-primary shadow-btn-primary hover:shadow-btn-primary-hover hover:-translate-y-0.5 transition-all">
+              Botão Principal
+            </button>
+          </div>
         </ComponentDemo>
 
+        {/* Campo de Texto com Red Lines */}
         <ComponentDemo
           title="Campo de Texto"
-          description="Usado para entrada de dados em formulários de contato e cadastro."
-          code={`<div>
-  <label className="text-body-label text-text-primary mb-1 block">E-mail de Trabalho</label>
-  <input 
-    placeholder="nome@empresa.com" 
-    className="w-full bg-surface-subdued border border-border-default rounded-input px-4 py-3 text-text-primary transition-all focus:outline-none focus:ring-2 focus:ring-border-focus/20 focus:border-border-focus" 
-  />
+          description="Especificação de anatomia para inputs com foco em área de clique e espaçamento."
+          code={`<div className="w-full h-[48px] bg-surface-subdued border border-border-default rounded-input px-4 flex items-center">
+  <input placeholder="E-mail" className="bg-transparent outline-none w-full" />
 </div>`}
         >
-          <div className="w-full max-w-md">
-            <label className="text-body-label text-text-primary mb-1 block">E-mail de Trabalho</label>
-            <input 
-              placeholder="nome@empresa.com" 
-              className="w-full bg-surface-subdued border border-border-default rounded-input px-4 py-3 text-text-primary transition-all focus:outline-none focus:ring-2 focus:ring-border-focus/20 focus:border-border-focus" 
-            />
+          <div className="w-full max-w-xs">
+            <div className="relative inline-block">
+              {/* Padding Left Indicator */}
+              <div className="absolute top-0 bottom-0 left-0 w-[16px] bg-red-500/10 border-r border-dashed border-red-500 pointer-events-none z-10 flex items-center justify-center">
+                <span className="text-[9px] text-red-500 font-mono bg-white px-0.5 rounded border border-red-200">px: 16</span>
+              </div>
+              
+              {/* Padding Right Indicator */}
+              <div className="absolute top-0 bottom-0 right-0 w-[16px] bg-red-500/10 border-l border-dashed border-red-500 pointer-events-none z-10" />
+              
+              {/* Height Indicator */}
+              <div className="absolute -right-8 top-0 bottom-0 border-r border-dashed border-red-500 flex items-center pointer-events-none">
+                <div className="absolute top-0 right-0 w-1 border-t border-red-500" />
+                <div className="absolute bottom-0 right-0 w-1 border-t border-red-500" />
+                <span className="text-[9px] text-red-500 font-mono bg-red-50 px-1 translate-x-full whitespace-nowrap border border-red-100 rounded ml-1">
+                  H: 48px
+                </span>
+              </div>
+
+              <div className="w-64 h-[48px] bg-surface-subdued border border-border-default rounded-input px-4 flex items-center">
+                <span className="text-text-secondary text-body-base">E-mail de Trabalho</span>
+              </div>
+            </div>
+          </div>
+        </ComponentDemo>
+
+        {/* Card Elevado com Red Lines */}
+        <ComponentDemo
+          title="Card Elevado"
+          description="Medidas de padding interno e arredondamento de bordas (Radius: 24px)."
+          code={`<div className="bg-surface-default rounded-card shadow-card-resting p-8 border border-border-subdued">
+  <h3 className="text-heading-subtitle">Conteúdo do Card</h3>
+</div>`}
+        >
+          <div className="relative inline-block">
+            {/* Padding Top Indicator */}
+            <div className="absolute -top-4 left-8 right-8 h-[32px] bg-red-500/10 border-b border-dashed border-red-500 pointer-events-none z-10 flex items-center justify-center">
+              <span className="text-[9px] text-red-500 font-mono bg-white px-0.5 rounded border border-red-200">px: 32</span>
+            </div>
+            
+            {/* Padding Bottom Indicator */}
+            <div className="absolute -bottom-4 left-8 right-8 h-[32px] bg-red-500/10 border-t border-dashed border-red-500 pointer-events-none z-10" />
+            
+            {/* Padding Left Indicator */}
+            <div className="absolute top-0 bottom-0 left-0 w-[32px] bg-red-500/10 border-r border-dashed border-red-500 pointer-events-none z-10" />
+            
+            {/* Padding Right Indicator */}
+            <div className="absolute top-0 bottom-0 right-0 w-[32px] bg-red-500/10 border-l border-dashed border-red-500 pointer-events-none z-10" />
+            
+            {/* Radius Indicator */}
+            <div className="absolute -top-4 -right-4 w-6 h-6 border border-dashed border-red-500 rounded-full pointer-events-none z-10 flex items-center justify-center">
+              <span className="text-[8px] text-red-500 font-mono">24</span>
+            </div>
+
+            <div className="bg-surface-default w-64 rounded-card shadow-card-resting border border-border-subdued p-8 relative">
+              <h3 className="text-heading-subtitle text-text-primary text-center">Plano Pro</h3>
+            </div>
           </div>
         </ComponentDemo>
 
         <ComponentDemo
-          title="Card Elevado"
-          description="Usado para exibir informações de planos, produtos ou features em grids."
-          code={`<div className="bg-surface-default rounded-card shadow-card-resting hover:shadow-card-hover border border-border-subdued p-8 transition-all duration-300 hover:-translate-y-2 cursor-pointer">
-  <h3 className="text-heading-subtitle text-text-primary">Plano Pro</h3>
-  <p className="text-body-base text-text-secondary mt-2">Acesso total às ferramentas.</p>
-</div>`}
+          title="Badge de Status"
+          description="Componente utilitário para feedbacks rápidos."
+          code={`<span className="bg-orange-50 text-brand-secondary text-body-badge px-3 py-1 rounded-badge font-bold border border-orange-100 uppercase tracking-widest">
+  Badge
+</span>`}
         >
-          <div className="w-full max-w-sm">
-            <div className="bg-surface-default rounded-card shadow-card-resting hover:shadow-card-hover border border-border-subdued p-8 transition-all duration-300 hover:-translate-y-2 cursor-pointer">
-              <h3 className="text-heading-subtitle text-text-primary">Plano Pro</h3>
-              <p className="text-body-base text-text-secondary mt-2">Acesso total às ferramentas.</p>
-            </div>
-          </div>
+          <span className="bg-orange-50 text-brand-secondary text-body-badge px-3 py-1 rounded-badge font-bold border border-orange-100 uppercase tracking-widest">
+            Badge Status
+          </span>
         </ComponentDemo>
       </div>
     </section>

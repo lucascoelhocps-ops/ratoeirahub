@@ -12,54 +12,71 @@ interface ColorSwatchProps {
   borderClass?: string;
 }
 
-function ColorSwatch({ name, token, bgClass, textClass = "text-white", isGradient, isBorder, borderClass }: ColorSwatchProps) {
+function ColorSwatch({ weight, hex, bgClass, textClass = "text-text-primary" }: { weight: string; hex: string; bgClass: string; textClass?: string }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.4 }}
-      className="group cursor-pointer"
-    >
+    <div className="group cursor-pointer">
       <div
         className={`
-          h-32 rounded-card flex flex-col justify-end p-4
+          h-16 w-full rounded-md border border-border-subdued mb-2
           ${bgClass}
-          ${isBorder ? borderClass : ''}
-          ${!isGradient && !isBorder ? 'border border-border-default' : ''}
-          shadow-card-resting hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1
+          transition-transform duration-200 group-hover:scale-105
         `}
-      >
-        <span className={`text-body-label font-bold ${textClass}`}>{name}</span>
+      />
+      <div className="flex flex-col items-center mt-2">
+        <span className="text-[10px] font-bold text-gray-700 leading-none">{weight}</span>
+        <span className="text-[9px] font-mono text-gray-400 mt-1 uppercase">{hex}</span>
       </div>
-      <div className="mt-3 space-y-1">
-        <p className="text-body-label text-text-primary">{token}</p>
-      </div>
-    </motion.div>
+    </div>
   );
 }
 
-interface ColorGroupProps {
+interface ColorScaleProps {
   title: string;
   description: string;
-  children: React.ReactNode;
+  colors: { weight: string; hex: string; bgClass: string }[];
 }
 
-function ColorGroup({ title, description, children }: ColorGroupProps) {
+function ColorScale({ title, description, colors }: ColorScaleProps) {
   return (
     <div className="space-y-6">
       <div>
         <h3 className="text-heading-subtitle text-text-primary mb-2">{title}</h3>
         <p className="text-body-base text-text-secondary">{description}</p>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {children}
+      <div className="grid grid-cols-5 md:grid-cols-9 gap-2">
+        {colors.map((color, index) => (
+          <ColorSwatch key={index} {...color} />
+        ))}
       </div>
     </div>
   );
 }
 
 export default function ColorPalette() {
+  const brandGold = [
+    { weight: "50", hex: "#FFF8E6", bgClass: "bg-[#FFF8E6]" },
+    { weight: "100", hex: "#FFEEB8", bgClass: "bg-[#FFEEB8]" },
+    { weight: "200", hex: "#FFE08A", bgClass: "bg-[#FFE08A]" },
+    { weight: "300", hex: "#FFD15C", bgClass: "bg-[#FFD15C]" },
+    { weight: "400", hex: "#FFC22E", bgClass: "bg-[#FFC22E]" },
+    { weight: "500", hex: "#FFB800", bgClass: "bg-[#FFB800]" },
+    { weight: "600", hex: "#E6A600", bgClass: "bg-[#E6A600]" },
+    { weight: "700", hex: "#CC9200", bgClass: "bg-[#CC9200]" },
+    { weight: "800", hex: "#B37E00", bgClass: "bg-[#B37E00]" },
+  ];
+
+  const brandOrange = [
+    { weight: "50", hex: "#FFF5F2", bgClass: "bg-[#FFF5F2]" },
+    { weight: "100", hex: "#FFEBE5", bgClass: "bg-[#FFEBE5]" },
+    { weight: "200", hex: "#FFD1C2", bgClass: "bg-[#FFD1C2]" },
+    { weight: "300", hex: "#FFA385", bgClass: "bg-[#FFA385]" },
+    { weight: "400", hex: "#FF8C66", bgClass: "bg-[#FF8C66]" },
+    { weight: "500", hex: "#FF7E4A", bgClass: "bg-[#FF7E4A]" },
+    { weight: "600", hex: "#E67142", bgClass: "bg-[#E67142]" },
+    { weight: "700", hex: "#CC653B", bgClass: "bg-[#CC653B]" },
+    { weight: "800", hex: "#B35833", bgClass: "bg-[#B35833]" },
+  ];
+
   return (
     <section id="cores" className="space-y-12">
       <div>
@@ -67,105 +84,22 @@ export default function ColorPalette() {
           Paleta de Cores
         </h2>
         <p className="text-body-base text-text-secondary max-w-2xl">
-          Cores semânticas organizadas por intenção. Cada token representa um papel específico na interface.
+          Cores semânticas e escalas de marca organizadas para máxima consistência visual.
         </p>
       </div>
 
-      <ColorGroup
-        title="Superfícies"
-        description="Cores de fundo que definem a hierarquia visual da página."
-      >
-        <ColorSwatch
-          name="Default"
-          token="bg-surface-default"
-          bgClass="bg-surface-default"
-          textClass="text-text-primary"
-        />
-        <ColorSwatch
-          name="Subdued"
-          token="bg-surface-subdued"
-          bgClass="bg-surface-subdued"
-          textClass="text-text-primary"
-        />
-        <ColorSwatch
-          name="Hover State"
-          token="bg-gray-100"
-          bgClass="bg-gray-100"
-          textClass="text-text-primary"
-        />
-      </ColorGroup>
+      <ColorScale
+        title="Gold (Brand Primary)"
+        description="Escala principal usada para destaque e branding."
+        colors={brandGold}
+      />
 
-      <ColorGroup
-        title="Marca"
-        description="Cores primárias que representam a identidade visual do Ratoeira Hub."
-      >
-        <ColorSwatch
-          name="Brand Primary"
-          token="bg-brand-primary"
-          bgClass="bg-brand-primary"
-          textClass="text-text-primary"
-        />
-        <ColorSwatch
-          name="Brand Hover"
-          token="bg-brand-primary-hover"
-          bgClass="bg-brand-primary-hover"
-          textClass="text-text-primary"
-        />
-        <ColorSwatch
-          name="Brand Secondary"
-          token="bg-brand-secondary"
-          bgClass="bg-brand-secondary"
-          textClass="text-white"
-        />
-        <ColorSwatch
-          name="Brand Gradient"
-          token="bg-gradient-to-r from-brand-primary to-brand-secondary"
-          bgClass="bg-gradient-to-r from-brand-primary to-brand-secondary"
-          textClass="text-text-primary"
-        />
-      </ColorGroup>
+      <ColorScale
+        title="Orange (Brand Secondary)"
+        description="Escala secundária para ações complementares e suporte."
+        colors={brandOrange}
+      />
 
-      <ColorGroup
-        title="Texto"
-        description="Cores para textos, organizadas por hierarquia de importância."
-      >
-        <ColorSwatch
-          name="Text Primary"
-          token="text-text-primary"
-          bgClass="bg-text-primary"
-          textClass="text-white"
-        />
-        <ColorSwatch
-          name="Text Secondary"
-          token="text-text-secondary"
-          bgClass="bg-text-secondary"
-          textClass="text-white"
-        />
-        <ColorSwatch
-          name="Text Muted"
-          token="text-text-muted"
-          bgClass="bg-text-muted"
-          textClass="text-white"
-        />
-      </ColorGroup>
-
-      <ColorGroup
-        title="Feedback"
-        description="Cores para estados de feedback e status."
-      >
-        <ColorSwatch
-          name="Success"
-          token="bg-feedback-success"
-          bgClass="bg-feedback-success"
-          textClass="text-white"
-        />
-        <ColorSwatch
-          name="Error"
-          token="bg-feedback-error"
-          bgClass="bg-feedback-error"
-          textClass="text-white"
-        />
-      </ColorGroup>
     </section>
   );
 }

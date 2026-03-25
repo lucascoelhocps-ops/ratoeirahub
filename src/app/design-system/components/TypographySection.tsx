@@ -6,25 +6,30 @@ interface TypographySpecProps {
   label: string;
   token: string;
   className: string;
-  children: React.ReactNode;
+  example: string;
 }
 
-function TypographySpec({ label, token, className, children }: TypographySpecProps) {
+function TypographySpec({ label, token, className, example }: TypographySpecProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4 }}
-      className="p-6 bg-surface-subdued rounded-card border border-border-default space-y-4"
+      className="p-8 bg-surface-subdued rounded-card border border-border-default grid grid-cols-1 md:grid-cols-3 gap-8 items-center"
     >
-      <div className="flex items-center justify-between">
-        <span className="text-body-label text-text-secondary">{label}</span>
-        <code className="text-body-badge text-brand-secondary bg-orange-50 px-2 py-1 rounded">
-          {token}
+      {/* Coluna da Esquerda: Metainformações */}
+      <div className="space-y-2">
+        <span className="text-body-label text-text-secondary block">{label}</span>
+        <code className="text-[11px] font-mono text-brand-secondary bg-orange-50 px-2 py-1 rounded border border-orange-100 block w-fit">
+          .{token}
         </code>
       </div>
-      <div className={className}>{children}</div>
+
+      {/* Coluna da Direita: Exemplo Real */}
+      <div className="md:col-span-2">
+        <p className={className}>{example}</p>
+      </div>
     </motion.div>
   );
 }
@@ -57,120 +62,62 @@ export default function TypographySection() {
           Tipografia
         </h2>
         <p className="text-body-base text-text-secondary max-w-2xl">
-          Sistema tipográfico baseado na família Inter. Cada estilo possui uma intenção clara de uso.
+          Sistema tipográfico baseado na família Inter. Cada estilo possui uma intenção clara de uso e escala definida.
         </p>
       </div>
 
-      {/* Display Styles */}
       <TypographyGroup
-        title="Display"
-        description="Usado para títulos hero em landing pages e seções de destaque."
+        title="Display & Headings"
+        description="Estilos de grande escala para títulos de impacto e hierarquia de seções."
       >
         <TypographySpec
           label="Display Hero"
           token="text-display-hero"
           className="text-display-hero text-text-primary"
-        >
-          <h1 className="text-display-hero text-text-primary">
-            Escalar no Tráfego
-          </h1>
-        </TypographySpec>
-      </TypographyGroup>
-
-      {/* Heading Styles */}
-      <TypographyGroup
-        title="Headings"
-        description="Usado para títulos de seções e páginas internas."
-      >
+          example="Escalar no Tráfego"
+        />
         <TypographySpec
           label="Heading Section"
           token="text-heading-section"
           className="text-heading-section text-text-primary"
-        >
-          <h2 className="text-heading-section text-text-primary">
-            Nossa Trajetória
-          </h2>
-        </TypographySpec>
-
+          example="Nossa Trajetória"
+        />
         <TypographySpec
           label="Heading Subtitle"
           token="text-heading-subtitle"
           className="text-heading-subtitle text-text-primary"
-        >
-          <h3 className="text-heading-subtitle text-text-primary">
-            Missão, Visão e Valores
-          </h3>
-        </TypographySpec>
+          example="Missão, Visão e Valores"
+        />
       </TypographyGroup>
 
-      {/* Body Styles */}
       <TypographyGroup
-        title="Body"
-        description="Usado para textos descritivos e conteúdo de parágrafo."
+        title="Body & Labels"
+        description="Estilos para leitura contínua, descrições e elementos de interface."
       >
         <TypographySpec
           label="Body Description"
           token="text-body-description"
           className="text-body-description text-text-secondary"
-        >
-          <p className="text-body-description text-text-secondary">
-            Rastreamento cirúrgico e páginas de alta conversão em um único lugar. 
-            Pare de perder dinheiro com cliques desqualificados.
-          </p>
-        </TypographySpec>
-
+          example="Rastreamento cirúrgico e páginas de alta conversão em um único lugar. Pare de perder dinheiro."
+        />
         <TypographySpec
           label="Body Base"
           token="text-body-base"
           className="text-body-base text-text-secondary"
-        >
-          <p className="text-body-base text-text-secondary">
-            Texto descritivo padrão para parágrafos e descrições de seções.
-          </p>
-        </TypographySpec>
-
+          example="Texto descritivo padrão para parágrafos e descrições de seções que exigem leitura clara."
+        />
         <TypographySpec
           label="Body Label"
           token="text-body-label"
           className="text-body-label text-text-primary"
-        >
-          <p className="text-body-label text-text-primary">
-            Nome Completo
-          </p>
-        </TypographySpec>
-      </TypographyGroup>
-
-      {/* Utility Text Styles */}
-      <TypographyGroup
-        title="Utilitários"
-        description="Estilos auxiliares para badges, labels e textos pequenos."
-      >
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="p-6 bg-surface-subdued rounded-card border border-border-default space-y-2">
-            <code className="text-body-badge text-brand-secondary bg-orange-50 px-2 py-1 rounded">
-              text-body-badge
-            </code>
-            <p className="text-body-badge text-text-primary uppercase tracking-widest">
-              Badge Label
-            </p>
-          </div>
-          <div className="p-6 bg-surface-subdued rounded-card border border-border-default space-y-2">
-            <code className="text-body-badge text-brand-secondary bg-orange-50 px-2 py-1 rounded">
-              text-body-base
-            </code>
-            <p className="text-body-base text-text-secondary">
-              Texto auxiliar descritivo
-            </p>
-          </div>
-          <div className="p-6 bg-surface-subdued rounded-card border border-border-default space-y-2">
-            <code className="text-body-badge text-brand-secondary bg-orange-50 px-2 py-1 rounded">
-              text-heading-subtitle
-            </code>
-            <p className="text-heading-subtitle text-text-primary">
-              Subtítulo de impacto
-            </p>
-          </div>
-        </div>
+          example="Nome Completo / E-mail de Trabalho"
+        />
+        <TypographySpec
+          label="Body Badge"
+          token="text-body-badge"
+          className="text-body-badge text-text-primary uppercase tracking-widest"
+          example="Badge Status"
+        />
       </TypographyGroup>
     </section>
   );
