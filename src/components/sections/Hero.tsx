@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import Link from "next/link";
 import {
   MessageCircle,
@@ -178,6 +178,23 @@ const slides = [
   },
 ];
 
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.215, 0.61, 0.355, 1] },
+  },
+};
+
 export default function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
 
@@ -187,23 +204,6 @@ export default function Hero() {
     }, 4000);
     return () => clearInterval(interval);
   }, []);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.12, delayChildren: 0.1 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.7, ease: [0.215, 0.61, 0.355, 1] },
-    },
-  };
 
   return (
     <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-black">
