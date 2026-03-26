@@ -99,7 +99,7 @@ export default function Pricing() {
             <button
               onClick={() => setYearly((y) => !y)}
               id="billing-toggle"
-              className={`relative w-12 h-6 rounded-full border-2 transition-all duration-300 ${
+              className={`relative w-12 h-6 rounded-button border-2 transition-all duration-300 ${
                 yearly ? "bg-yellow-500 border-yellow-500" : "bg-gray-200 border-gray-200"
               }`}
             >
@@ -189,7 +189,7 @@ export default function Pricing() {
                 {/* CTA */}
                 <a
                   href="#"
-                  className={`flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl font-bold text-sm transition-all duration-200 group ${
+                  className={`flex items-center justify-center gap-2 px-6 py-3.5 rounded-button font-bold text-sm transition-all duration-200 group ${
                     plan.popular
                       ? "bg-white text-orange-600 hover:bg-orange-50 shadow-lg"
                       : "bg-yellow-500 text-white hover:bg-yellow-600 shadow-lg shadow-yellow-500/20"

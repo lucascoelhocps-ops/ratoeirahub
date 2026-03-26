@@ -256,7 +256,7 @@ export default function Contact() {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-lg rounded transition-colors duration-200"
+              className="w-full px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-lg rounded-button transition-colors duration-200"
             >
               SOLICITAR CONTATO DO ESPECIALISTA
             </button>

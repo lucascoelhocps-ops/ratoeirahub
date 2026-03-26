@@ -49,7 +49,7 @@ export default function Footer() {
           {/* Brand column */}
           <div className="col-span-2">
             <Link href="/" className="flex items-center gap-2.5 group mb-5 w-fit">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-yellow-500 to-orange-500 flex items-center justify-center shadow-lg shadow-yellow-500/20">
+              <div className="w-9 h-9 rounded-button bg-linear-to-br from-yellow-500 to-orange-500 flex items-center justify-center shadow-lg shadow-yellow-500/20">
                 <Zap className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-black text-white">Ratoeira Hub</span>
@@ -64,7 +64,7 @@ export default function Footer() {
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
-                  className="w-9 h-9 rounded-xl bg-gray-800 hover:bg-yellow-500 border border-gray-700 hover:border-yellow-400 flex items-center justify-center text-gray-400 hover:text-white transition-all duration-200 hover:scale-110"
+                  className="w-9 h-9 rounded-button bg-gray-800 hover:bg-yellow-500 border border-gray-700 hover:border-yellow-400 flex items-center justify-center text-gray-400 hover:text-white transition-all duration-200 hover:scale-110"
                 >
                   <social.icon className="w-4 h-4" />
                 </a>

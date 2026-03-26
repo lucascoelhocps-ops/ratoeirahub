@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { Zap, BarChart3, Tag, Wand2, Phone, Clipboard, ArrowRight, CheckCircle } from "lucide-react";
+import { Zap, BarChart3, Tag, Wand2, Phone, Clipboard } from "lucide-react";
 
 const tabs = [
   { id: "campanhas", label: "Campanhas", icon: Zap },
@@ -84,9 +84,9 @@ export default function ProblemSolution() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`inline-flex items-center gap-2 px-5 py-3 rounded-full font-semibold text-sm transition-all duration-300 ${
+                className={`inline-flex items-center gap-2 px-5 py-3 rounded-button font-semibold text-sm transition-all duration-300 ${
                   isActive
-                    ? "bg-gradient-to-r from-yellow-500 to-orange-500 text-white shadow-lg shadow-yellow-500/30"
+                    ? "bg-linear-to-r from-yellow-500 to-orange-500 text-white shadow-lg shadow-yellow-500/30"
                     : "bg-white text-gray-600 border border-gray-200 hover:border-yellow-300"
                 }`}
               >
@@ -123,10 +123,10 @@ export default function ProblemSolution() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="bg-gradient-to-b from-gray-100 to-gray-50 rounded-3xl p-8 border border-gray-200 shadow-2xl aspect-video flex items-center justify-center overflow-hidden"
+              className="bg-linear-to-b from-gray-100 to-gray-50 rounded-3xl p-8 border border-gray-200 shadow-2xl aspect-video flex items-center justify-center overflow-hidden"
             >
               <div className="text-center">
-                <div className="w-20 h-20 rounded-2xl mx-auto mb-4 flex items-center justify-center bg-gradient-to-r from-yellow-500 to-orange-500">
+                <div className="w-20 h-20 rounded-2xl mx-auto mb-4 flex items-center justify-center bg-linear-to-r from-yellow-500 to-orange-500">
                   {activeTab === "campanhas" && <Zap className="w-10 h-10 text-white" />}
                   {activeTab === "dashboard" && <BarChart3 className="w-10 h-10 text-white" />}
                   {activeTab === "categorizacao" && <Tag className="w-10 h-10 text-white" />}

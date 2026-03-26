@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Zap, Target, ArrowRight, CheckCircle, Rocket } from "lucide-react";
+import { Zap, Target, ArrowRight, Rocket } from "lucide-react";
 
 export default function Integrations() {
   const ref = useRef<HTMLDivElement>(null);
@@ -33,7 +33,7 @@ export default function Integrations() {
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-gradient-to-br from-yellow-50 via-white to-blue-50 rounded-3xl p-10 border border-gray-200 shadow-xl mb-12"
+          className="bg-linear-to-br from-yellow-50 via-white to-blue-50 rounded-3xl p-10 border border-gray-200 shadow-xl mb-12"
         >
           {/* Visual Integration Representation */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-10">
@@ -48,7 +48,7 @@ export default function Integrations() {
 
             {/* Arrow */}
             <div className="flex items-center gap-2">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-r from-yellow-500 to-blue-600 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-full bg-linear-to-r from-yellow-500 to-blue-600 flex items-center justify-center">
                 <Zap className="w-6 h-6 text-white" />
               </div>
             </div>
@@ -76,7 +76,7 @@ export default function Integrations() {
               </div>
               <h4 className="text-lg font-bold text-gray-900 mb-2">Conexão em Segundos</h4>
               <p className="text-gray-600 text-sm">
-                Selecione sua "Ratoeira" no painel e suas páginas estarão integradas automaticamente. Zero código. Zero dor de cabeça.
+                Selecione sua &quot;Ratoeira&quot; no painel e suas páginas estarão integradas automaticamente. Zero código. Zero dor de cabeça.
               </p>
             </motion.div>
 
@@ -121,7 +121,7 @@ export default function Integrations() {
         >
           <a
             href="#fale-conosco"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold rounded-2xl transition-all duration-200 shadow-lg hover:shadow-yellow-500/30 hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold rounded-button transition-all duration-200 shadow-lg hover:shadow-yellow-500/30 hover:-translate-y-0.5"
           >
             Experimente o ecossistema completo
             <ArrowRight className="w-5 h-5" />

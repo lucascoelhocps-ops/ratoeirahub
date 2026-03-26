@@ -38,7 +38,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-xl bg-[#ffb800] flex items-center justify-center shadow-lg shadow-amber-500/30 group-hover:shadow-amber-500/50 transition-shadow">
+            <div className="w-8 h-8 rounded-button bg-[#ffb800] flex items-center justify-center shadow-lg shadow-amber-500/30 group-hover:shadow-amber-500/50 transition-shadow">
               <Zap className="w-4 h-4 text-[#0a0a0a]" />
             </div>
             <span className="text-xl font-bold text-white">
@@ -70,7 +70,7 @@ export default function Header() {
             </Link>
             <Link
               href="#demo"
-              className="text-sm font-semibold text-[#0a0a0a] bg-[#ffb800] hover:bg-[#e6a600] px-5 py-2.5 rounded-full transition-all duration-200 shadow-lg shadow-amber-500/30 hover:shadow-amber-500/50 hover:-translate-y-0.5"
+              className="text-sm font-semibold text-[#0a0a0a] bg-[#ffb800] hover:bg-[#e6a600] px-5 py-2.5 rounded-button transition-all duration-200 shadow-lg shadow-amber-500/30 hover:shadow-amber-500/50 hover:-translate-y-0.5"
             >
               Teste grátis
             </Link>
@@ -79,7 +79,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden p-2 rounded-xl text-gray-300 hover:text-[#ffb800] hover:bg-amber-500/10 transition-colors"
+            className="lg:hidden p-2 rounded-button text-gray-300 hover:text-[#ffb800] hover:bg-amber-500/10 transition-colors"
             aria-label="Abrir menu"
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -117,13 +117,13 @@ export default function Header() {
               <div className="flex flex-col gap-2 pt-2 border-t border-amber-500/10">
                 <Link
                   href="#login"
-                  className="text-center text-sm font-medium text-gray-300 border border-amber-500/30 rounded-full py-2.5 hover:border-amber-400 hover:text-[#ffb800] transition-colors"
+                  className="text-center text-sm font-medium text-gray-300 border border-amber-500/30 rounded-button py-2.5 hover:border-amber-400 hover:text-[#ffb800] transition-colors"
                 >
                   Entrar
                 </Link>
                 <Link
                   href="#demo"
-                  className="text-center text-sm font-semibold text-[#0a0a0a] bg-[#ffb800] rounded-full py-2.5 hover:bg-[#e6a600] transition-colors"
+                  className="text-center text-sm font-semibold text-[#0a0a0a] bg-[#ffb800] rounded-button py-2.5 hover:bg-[#e6a600] transition-colors"
                 >
                   Teste grátis
                 </Link>
